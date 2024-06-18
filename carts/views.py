@@ -71,6 +71,10 @@ def cart_change(request):
         "quantity": updated_quantity,
     }
 
+    # referer = request.META.get('HTTP_REFERER')
+    # if reverse('orders:create_order') in referer:
+    #     context["orders"] = True
+
     return JsonResponse(response_data)
 
 
@@ -91,6 +95,11 @@ def cart_remove(request):
         "message": "Товар удален",
         "cart_items_html": cart_items_html,
         "quantity_deleted": quantity,
+        
     }
+
+    # referer = request.META.get('HTTP_REFERER')
+    # if reverse('orders:create_order') in referer:
+    #     context["orders"] = True
 
     return JsonResponse(response_data)
